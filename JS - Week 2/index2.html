@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>JavaScript Color Guessing Game</title>
+</head>
+
+<body onload="do_game()">
+
+  <script>
+    var guess_input;
+    var guesses = 0;
+    var colours = ["blue", "cyan", "green", "magenta", "orange", "purple", "rebeccapurple", "white", "yellow"];
+    var colours_list = colours.sort();
+    var target = colours_list[Math.floor(Math.random() * colours.length)];
+
+    alert("The chosen colour is: " + target);
+
+    function do_game() {
+      var finished = false;
+
+      while (!finished) {
+        var guess_input = prompt("I am thinking of one of these colours: " + colours_list.join(', ') + "\n\n What colour am I thinking of?");
+        guesses++;
+        finished = check_guess();
+      }
+
+      function check_guess() {
+        if (colours.indexOf(guess_input) == -1) {
+          alert("That's not a valid colour from the list! \n\nPlease try again! :D");
+          return false;
+        }
+        if (guess_input < target) {
+          alert("Sorry, your guess is not correct. \n\n Hint: your color is alphabetically lower than mine");
+          return false;
+        }
+        if (guess_input > target) {
+          alert("Sorry, your guess is not correct. \n\n Hint: your color is alphabetically higher than mine");
+          return false;
+        }
+        if (guess_input === target) {
+          document.body.style.backgroundColor = target;
+          alert("Congratulations! You have guessed the color! \n\n It took you " + guesses + " guesses to finish the game! \n\n You can see the color in the background");
+          return true;
+        }
+      }
+    };
+</script>
+</body>
+</html>
