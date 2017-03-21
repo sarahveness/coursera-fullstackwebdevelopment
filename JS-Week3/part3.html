@@ -18,10 +18,12 @@
     </style>
 
     <script>
+    var numberOfFaces = 5;
+
     function generateFaces(numberOfFaces) {
-      var numberOfFaces = 5;
       var theLeftSide = document.getElementById("leftSide");
       var theRightSide = document.getElementById("rightSide");
+
       for (var i = 0; i < numberOfFaces; i++) {
         var smileImg = document.createElement("img");
         smileImg.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
@@ -31,7 +33,8 @@
 
         var leftSideImages = theLeftSide.cloneNode(true);
         leftSideImages.removeChild(leftSideImages.lastChild);
-        theRightSide.appendChild(leftSideImages); 
+        theRightSide.appendChild(leftSideImages);
+
       }
     }
     </script>

@@ -18,9 +18,11 @@
     </style>
 
     <script>
+    var numberOfFaces = 5;
+
     function generateFaces(numberOfFaces) {
-      var numberOfFaces = 5;
       var theLeftSide = document.getElementById("leftSide");
+
       for (var i = 0; i < numberOfFaces; i++) {
         var smileImg = document.createElement("img");
         smileImg.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
